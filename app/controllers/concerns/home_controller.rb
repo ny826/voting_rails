@@ -16,15 +16,12 @@ def neil
    neil=40816403215
    NeilTyagi.create(:voter=>current_user.id, :self=>neil)
 	return redirect_to '/';
-
 end
 
 def result
-
 end
 
 def see
-
 end
 
 end
