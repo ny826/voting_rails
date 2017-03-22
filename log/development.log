@@ -1481,3 +1481,604 @@ Processing by Devise::SessionsController#new as HTML
   Rendered devise/shared/_links.html.erb (3.2ms)
   Rendered devise/sessions/new.html.erb within layouts/application (18.3ms)
 Completed 200 OK in 53ms (Views: 52.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-03-23 01:00:02 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (21.6ms)
+Completed 200 OK in 288ms (Views: 261.7ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-03-23 01:00:13 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"nDFgSLWOiMicldpEEiD54eRvAA1fdyelJhpNaJ8kgB2mbopxr11uv4YrQ2T0HUaglvSJ7lRYsKIN/TcwKw3/KA==", "user"=>{"email"=>"ny826yadav@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Log in"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["email", "ny826yadav@gmail.com"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "users" SET "remember_created_at" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["remember_created_at", "2017-03-22 19:30:13.821164"], ["updated_at", "2017-03-22 19:30:13.822235"], ["id", 1]]
+  [1m[36m (83.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2017-03-22 19:30:13.912808"], ["sign_in_count", 2], ["updated_at", "2017-03-22 19:30:13.913498"], ["id", 1]]
+  [1m[35m (97.5ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 357ms (ActiveRecord: 182.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-03-23 01:00:14 +0530
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mRajivRanjan Load (0.1ms)[0m  SELECT  "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."voter" IS NULL LIMIT 1
+  [1m[36mNeilTyagi Load (0.1ms)[0m  [1mSELECT  "neil_tyagis".* FROM "neil_tyagis" WHERE "neil_tyagis"."voter" IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."voter" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "neil_tyagis".* FROM "neil_tyagis" WHERE "neil_tyagis"."voter" IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."voter" IS NULL LIMIT 1
+  Rendered home/index.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 21ms (Views: 18.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/rajiv" for 127.0.0.1 at 2017-03-23 01:00:21 +0530
+Processing by HomeController#rajiv as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "rajiv_ranjans" ("voter", "self", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["voter", "1"], ["self", "70116403215"], ["created_at", "2017-03-22 19:30:21.584052"], ["updated_at", "2017-03-22 19:30:21.584052"]]
+  [1m[35m (185.7ms)[0m  commit transaction
+Redirected to http://localhost:3000/logout
+Completed 302 Found in 192ms (ActiveRecord: 186.2ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2017-03-23 01:00:21 +0530
+
+ActionController::RoutingError (No route matches [GET] "/logout"):
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.5) lib/rack/handler/webrick.rb:88:in `service'
+  /home/naveen/.rbenv/versions/2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/naveen/.rbenv/versions/2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/naveen/.rbenv/versions/2.2.3/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.3ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.1ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (46.7ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (18.6ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (35.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-03-23 01:03:54 +0530
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mRajivRanjan Load (0.2ms)[0m  SELECT  "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."voter" = ? LIMIT 1  [["voter", "1"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."voter" = ? LIMIT 1[0m  [["voter", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."voter" = ? LIMIT 1  [["voter", 1]]
+  [1m[36mNeilTyagi Load (0.2ms)[0m  [1mSELECT  "neil_tyagis".* FROM "neil_tyagis" WHERE "neil_tyagis"."voter" = ? LIMIT 1[0m  [["voter", "1"]]
+  Rendered home/index.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 21ms (Views: 17.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/result" for 127.0.0.1 at 2017-03-23 01:03:56 +0530
+Processing by HomeController#result as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mRajivRanjan Load (0.2ms)[0m  [1mSELECT  "rajiv_ranjans".* FROM "rajiv_ranjans"  ORDER BY "rajiv_ranjans"."id" ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "rajiv_ranjans"
+  [1m[36mNeilTyagi Load (0.2ms)[0m  [1mSELECT  "neil_tyagis".* FROM "neil_tyagis"  ORDER BY "neil_tyagis"."id" ASC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "rajiv_ranjans"
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "neil_tyagis"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "rajiv_ranjans"
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT COUNT(*) FROM "neil_tyagis"[0m
+  Rendered home/result.html.erb (10.4ms)
+Completed 200 OK in 14ms (Views: 10.1ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-03-23 01:03:57 +0530
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mRajivRanjan Load (0.1ms)[0m  [1mSELECT  "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."voter" = ? LIMIT 1[0m  [["voter", "1"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."voter" = ? LIMIT 1  [["voter", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."voter" = ? LIMIT 1[0m  [["voter", 1]]
+  [1m[35mNeilTyagi Load (0.1ms)[0m  SELECT  "neil_tyagis".* FROM "neil_tyagis" WHERE "neil_tyagis"."voter" = ? LIMIT 1  [["voter", "1"]]
+  Rendered home/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 21ms (Views: 20.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/see" for 127.0.0.1 at 2017-03-23 01:04:02 +0530
+Processing by HomeController#see as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mNeilTyagi Load (0.3ms)[0m  SELECT  "neil_tyagis".* FROM "neil_tyagis" WHERE "neil_tyagis"."self" = ?  ORDER BY "neil_tyagis"."id" ASC LIMIT 1  [["self", "40816403215"]]
+  [1m[36mRajivRanjan Load (0.3ms)[0m  [1mSELECT  "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."self" = ?  ORDER BY "rajiv_ranjans"."id" ASC LIMIT 1[0m  [["self", "70116403215"]]
+  [1m[35mRajivRanjan Load (0.3ms)[0m  SELECT "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."self" = ?  [["self", "70116403215"]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered home/see.html.erb (7.7ms)
+Completed 200 OK in 11ms (Views: 7.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-03-23 01:04:03 +0530
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mRajivRanjan Load (0.1ms)[0m  SELECT  "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."voter" = ? LIMIT 1  [["voter", "1"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."voter" = ? LIMIT 1[0m  [["voter", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."voter" = ? LIMIT 1  [["voter", 1]]
+  [1m[36mNeilTyagi Load (0.1ms)[0m  [1mSELECT  "neil_tyagis".* FROM "neil_tyagis" WHERE "neil_tyagis"."voter" = ? LIMIT 1[0m  [["voter", "1"]]
+  Rendered home/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 29ms (Views: 26.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/result" for 127.0.0.1 at 2017-03-23 01:04:05 +0530
+Processing by HomeController#result as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mRajivRanjan Load (0.2ms)[0m  [1mSELECT  "rajiv_ranjans".* FROM "rajiv_ranjans"  ORDER BY "rajiv_ranjans"."id" ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "rajiv_ranjans"
+  [1m[36mNeilTyagi Load (0.2ms)[0m  [1mSELECT  "neil_tyagis".* FROM "neil_tyagis"  ORDER BY "neil_tyagis"."id" ASC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "rajiv_ranjans"
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "neil_tyagis"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "rajiv_ranjans"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "neil_tyagis"[0m
+  Rendered home/result.html.erb (6.3ms)
+Completed 200 OK in 9ms (Views: 6.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-03-23 01:04:07 +0530
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mRajivRanjan Load (0.1ms)[0m  [1mSELECT  "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."voter" = ? LIMIT 1[0m  [["voter", "1"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."voter" = ? LIMIT 1  [["voter", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."voter" = ? LIMIT 1[0m  [["voter", 1]]
+  [1m[35mNeilTyagi Load (0.1ms)[0m  SELECT  "neil_tyagis".* FROM "neil_tyagis" WHERE "neil_tyagis"."voter" = ? LIMIT 1  [["voter", "1"]]
+  Rendered home/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 22ms (Views: 19.0ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2017-03-23 01:04:10 +0530
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"UBNgjkkDt0FVr3FNeUJ4P1CJt87see5bU/GMdn7EiOHMOhsVWyYHwmcMZ10DLDsGG1+eD8ndnPK963M247SgDQ=="}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "remember_created_at" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["remember_created_at", nil], ["updated_at", "2017-03-22 19:34:10.826864"], ["id", 1]]
+  [1m[35m (101.8ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 109ms (ActiveRecord: 103.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-03-23 01:04:10 +0530
+Processing by HomeController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-03-23 01:04:10 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 19ms (Views: 17.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-03-23 01:06:03 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (23.1ms)
+Completed 200 OK in 287ms (Views: 261.1ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2017-03-23 01:06:26 +0530
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6HlGv54clogdV7yOD0BU5eHInDIFSS2gD6jxG+nI/YjEJ03JJtvQjjOjDlLSlRR8mQEdP7R/lsZhLhYZRQXwcw==", "user"=>{"name"=>"Naveen Yadav", "enrollment"=>"41516403215", "branch"=>"cse", "email"=>"ny826yadav@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'ny826yadav@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "name", "enrollment", "branch", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["email", "ny826yadav@gmail.com"], ["encrypted_password", "$2a$11$jIkuwKm9ea5IHpfFSmFSze3Q.6p/lyUVIm3Sng7QxKkuhJGuqd9UW"], ["name", "Naveen Yadav"], ["enrollment", "41516403215"], ["branch", "cse"], ["created_at", "2017-03-22 19:36:26.510160"], ["updated_at", "2017-03-22 19:36:26.510160"], ["confirmation_token", "CfvpD_GJmFpQbNor5yJj"], ["confirmation_sent_at", "2017-03-22 19:36:26.510443"]]
+  [1m[36m (78.1ms)[0m  [1mcommit transaction[0m
+  Rendered devise/mailer/confirmation_instructions.html.erb (0.8ms)
+
+Devise::Mailer#confirmation_instructions: processed outbound mail in 126.6ms
+
+Sent mail to ny826yadav@gmail.com (2212.9ms)
+Date: Thu, 23 Mar 2017 01:06:26 +0530
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: ny826yadav@gmail.com
+Message-ID: <58d2d23ab21a0_27c72af79cdf49a479d@naveen-HP-Notebook.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome ny826yadav@gmail.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=CfvpD_GJmFpQbNor5yJj">Confirm my account</a></p>
+
+Redirected to http://localhost:3000/
+Completed 302 Found in 2595ms (ActiveRecord: 78.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-03-23 01:06:28 +0530
+Processing by HomeController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-03-23 01:06:28 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 26ms (Views: 23.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/confirmation?confirmation_token=CfvpD_GJmFpQbNor5yJj" for 127.0.0.1 at 2017-03-23 01:06:40 +0530
+Processing by Devise::ConfirmationsController#show as HTML
+  Parameters: {"confirmation_token"=>"CfvpD_GJmFpQbNor5yJj"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."confirmation_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["confirmation_token", "CfvpD_GJmFpQbNor5yJj"]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "confirmed_at" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["confirmed_at", "2017-03-22 19:36:40.295042"], ["updated_at", "2017-03-22 19:36:40.295452"], ["id", 1]]
+  [1m[36m (180.8ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 190ms (ActiveRecord: 181.4ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-03-23 01:06:40 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 16ms (Views: 14.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-03-23 01:06:50 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3Squ3f3Dbu1pL7IUk92/KijTFEAGjjkuLTpjMFUX9AfxdKWrRQQo60fbAMhOCP+zUBqVTbe4gkhDvIQy+dr5/A==", "user"=>{"email"=>"ny826yadav@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Log in"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["email", "ny826yadav@gmail.com"]]
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "remember_created_at" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["remember_created_at", "2017-03-22 19:36:50.731669"], ["updated_at", "2017-03-22 19:36:50.732971"], ["id", 1]]
+  [1m[36m (123.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "last_sign_in_ip" = ?, "current_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["last_sign_in_at", "2017-03-22 19:36:50.857987"], ["current_sign_in_at", "2017-03-22 19:36:50.857987"], ["last_sign_in_ip", "127.0.0.1"], ["current_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2017-03-22 19:36:50.858643"], ["id", 1]]
+  [1m[35m (64.2ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 347ms (ActiveRecord: 188.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-03-23 01:06:50 +0530
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mRajivRanjan Load (0.1ms)[0m  SELECT  "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."voter" = ? LIMIT 1  [["voter", "1"]]
+  [1m[36mNeilTyagi Load (0.1ms)[0m  [1mSELECT  "neil_tyagis".* FROM "neil_tyagis" WHERE "neil_tyagis"."voter" = ? LIMIT 1[0m  [["voter", "1"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."voter" = ? LIMIT 1  [["voter", 1]]
+  [1m[36mNeilTyagi Load (0.1ms)[0m  [1mSELECT  "neil_tyagis".* FROM "neil_tyagis" WHERE "neil_tyagis"."voter" IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."voter" = ? LIMIT 1  [["voter", 1]]
+  Rendered home/index.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 26ms (Views: 23.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/rajiv" for 127.0.0.1 at 2017-03-23 01:06:53 +0530
+Processing by HomeController#rajiv as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "rajiv_ranjans" ("voter", "self", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["voter", "1"], ["self", "70116403215"], ["created_at", "2017-03-22 19:36:53.028044"], ["updated_at", "2017-03-22 19:36:53.028044"]]
+  [1m[35m (172.4ms)[0m  commit transaction
+Redirected to http://localhost:3000/logout
+Completed 302 Found in 181ms (ActiveRecord: 173.0ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2017-03-23 01:06:53 +0530
+
+ActionController::RoutingError (No route matches [GET] "/logout"):
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.5) lib/rack/handler/webrick.rb:88:in `service'
+  /home/naveen/.rbenv/versions/2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/naveen/.rbenv/versions/2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/naveen/.rbenv/versions/2.2.3/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.2ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.5ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (30.1ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (16.3ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (33.9ms)
+
+
+Started GET "/rajiv" for 127.0.0.1 at 2017-03-23 01:12:53 +0530
+
+SyntaxError (/home/naveen/rails_project/voting/app/controllers/concerns/home_controller.rb:12: syntax error, unexpected '<', expecting keyword_end
+    <%= link_to 'logout', destroy_...
+     ^
+/home/naveen/rails_project/voting/app/controllers/concerns/home_controller.rb:16: syntax error, unexpected tINTEGER, expecting keyword_end
+/home/naveen/rails_project/voting/app/controllers/concerns/home_controller.rb:18: syntax error, unexpected '<', expecting keyword_end
+<%= link_to 'logout', destroy_user_session_path, method: :delete %>
+ ^):
+  app/controllers/concerns/home_controller.rb:12: syntax error, unexpected '<', expecting keyword_end
+  app/controllers/concerns/home_controller.rb:16: syntax error, unexpected tINTEGER, expecting keyword_end
+  app/controllers/concerns/home_controller.rb:18: syntax error, unexpected '<', expecting keyword_end
+
+
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.3ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (22.7ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.1ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (18.8ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.6ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (41.2ms)
+
+
+Started GET "/rajiv" for 127.0.0.1 at 2017-03-23 01:13:24 +0530
+Processing by HomeController#rajiv as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "rajiv_ranjans" ("voter", "self", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["voter", "1"], ["self", "70116403215"], ["created_at", "2017-03-22 19:43:25.060863"], ["updated_at", "2017-03-22 19:43:25.060863"]]
+  [1m[35m (109.5ms)[0m  commit transaction
+Completed 500 Internal Server Error in 148ms (ActiveRecord: 110.7ms)
+
+NoMethodError (undefined method `link_to' for #<HomeController:0x007efd055f3f08>):
+  app/controllers/concerns/home_controller.rb:12:in `rajiv'
+
+
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.7ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (29.3ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.8ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (18.3ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (37.7ms)
+
+
+Started GET "/rajiv" for 127.0.0.1 at 2017-03-23 01:14:32 +0530
+Processing by HomeController#rajiv as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "rajiv_ranjans" ("voter", "self", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["voter", "1"], ["self", "70116403215"], ["created_at", "2017-03-22 19:44:32.644207"], ["updated_at", "2017-03-22 19:44:32.644207"]]
+  [1m[35m (117.6ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 145ms (ActiveRecord: 119.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-03-23 01:14:32 +0530
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mRajivRanjan Load (0.1ms)[0m  SELECT  "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."voter" = ? LIMIT 1  [["voter", "1"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."voter" = ? LIMIT 1[0m  [["voter", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."voter" = ? LIMIT 1  [["voter", 1]]
+  [1m[36mNeilTyagi Load (0.1ms)[0m  [1mSELECT  "neil_tyagis".* FROM "neil_tyagis" WHERE "neil_tyagis"."voter" = ? LIMIT 1[0m  [["voter", "1"]]
+  Rendered home/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 24ms (Views: 21.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-03-23 01:15:41 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+Completed 401 Unauthorized in 23ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-03-23 01:15:41 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (17.1ms)
+Completed 200 OK in 275ms (Views: 260.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-03-23 01:15:44 +0530
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.4ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 27ms (Views: 24.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2017-03-23 01:16:05 +0530
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JM0+LAsbYHuhR0hDU5OBalPNkdt9Q1Csbq15JHgKGhkrTJMHs1j30CPmgimXGzPFP44H1mVkPHqzMeDrC/sf8g==", "user"=>{"name"=>"Naveen Yadav", "enrollment"=>"41516403215", "branch"=>"cse", "email"=>"ny826yadav@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'ny826yadav@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "name", "enrollment", "branch", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["email", "ny826yadav@gmail.com"], ["encrypted_password", "$2a$11$VBQpLi5maZImoawu4uwf7uMoxC9pDMkeAwaDQaj4JvaAa3JFJNdkC"], ["name", "Naveen Yadav"], ["enrollment", "41516403215"], ["branch", "cse"], ["created_at", "2017-03-22 19:46:05.881719"], ["updated_at", "2017-03-22 19:46:05.881719"], ["confirmation_token", "z2_rsHK3zpV9GxZRof-X"], ["confirmation_sent_at", "2017-03-22 19:46:05.882002"]]
+  [1m[36m (72.0ms)[0m  [1mcommit transaction[0m
+  Rendered devise/mailer/confirmation_instructions.html.erb (0.7ms)
+
+Devise::Mailer#confirmation_instructions: processed outbound mail in 143.0ms
+
+Sent mail to ny826yadav@gmail.com (7848.0ms)
+Date: Thu, 23 Mar 2017 01:16:06 +0530
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: ny826yadav@gmail.com
+Message-ID: <58d2d47e1b7fe_2a3c2ab2a1c3bc7490651@naveen-HP-Notebook.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome ny826yadav@gmail.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=z2_rsHK3zpV9GxZRof-X">Confirm my account</a></p>
+
+Redirected to http://localhost:3000/
+Completed 302 Found in 8241ms (ActiveRecord: 72.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-03-23 01:16:13 +0530
+Processing by HomeController#index as HTML
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-03-23 01:16:13 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 18ms (Views: 17.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/confirmation?confirmation_token=z2_rsHK3zpV9GxZRof-X" for 127.0.0.1 at 2017-03-23 01:16:20 +0530
+Processing by Devise::ConfirmationsController#show as HTML
+  Parameters: {"confirmation_token"=>"z2_rsHK3zpV9GxZRof-X"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."confirmation_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["confirmation_token", "z2_rsHK3zpV9GxZRof-X"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "confirmed_at" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["confirmed_at", "2017-03-22 19:46:20.254315"], ["updated_at", "2017-03-22 19:46:20.255153"], ["id", 1]]
+  [1m[36m (209.9ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 219ms (ActiveRecord: 211.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-03-23 01:16:20 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 16ms (Views: 14.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-03-23 01:16:35 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TPHvEb+ZmN3TdpvVd7ARPK95U575i0wRNBglBcrY1xhDcEI6B9oPdlHXUb+zOKOTwzrFk+GsIMfphLzKuSnS8w==", "user"=>{"email"=>"ny826yadav@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["email", "ny826yadav@gmail.com"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "last_sign_in_ip" = ?, "current_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["last_sign_in_at", "2017-03-22 19:46:35.170881"], ["current_sign_in_at", "2017-03-22 19:46:35.170881"], ["last_sign_in_ip", "127.0.0.1"], ["current_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2017-03-22 19:46:35.171477"], ["id", 1]]
+  [1m[36m (61.3ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 217ms (ActiveRecord: 62.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-03-23 01:16:35 +0530
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mRajivRanjan Load (0.1ms)[0m  [1mSELECT  "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."voter" = ? LIMIT 1[0m  [["voter", "1"]]
+  [1m[35mNeilTyagi Load (0.1ms)[0m  SELECT  "neil_tyagis".* FROM "neil_tyagis" WHERE "neil_tyagis"."voter" = ? LIMIT 1  [["voter", "1"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."voter" = ? LIMIT 1[0m  [["voter", 1]]
+  [1m[35mNeilTyagi Load (0.1ms)[0m  SELECT  "neil_tyagis".* FROM "neil_tyagis" WHERE "neil_tyagis"."voter" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."voter" = ? LIMIT 1[0m  [["voter", 1]]
+  Rendered home/index.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 26ms (Views: 23.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/rajiv" for 127.0.0.1 at 2017-03-23 01:16:37 +0530
+Processing by HomeController#rajiv as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "rajiv_ranjans" ("voter", "self", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["voter", "1"], ["self", "70116403215"], ["created_at", "2017-03-22 19:46:37.390652"], ["updated_at", "2017-03-22 19:46:37.390652"]]
+  [1m[36m (175.8ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 185ms (ActiveRecord: 176.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-03-23 01:16:37 +0530
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mRajivRanjan Load (0.1ms)[0m  [1mSELECT  "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."voter" = ? LIMIT 1[0m  [["voter", "1"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."voter" = ? LIMIT 1  [["voter", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."voter" = ? LIMIT 1[0m  [["voter", 1]]
+  [1m[35mNeilTyagi Load (0.0ms)[0m  SELECT  "neil_tyagis".* FROM "neil_tyagis" WHERE "neil_tyagis"."voter" = ? LIMIT 1  [["voter", "1"]]
+  Rendered home/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 13ms (Views: 12.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/result" for 127.0.0.1 at 2017-03-23 01:16:39 +0530
+Processing by HomeController#result as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mRajivRanjan Load (0.2ms)[0m  SELECT  "rajiv_ranjans".* FROM "rajiv_ranjans"  ORDER BY "rajiv_ranjans"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "rajiv_ranjans"[0m
+  [1m[35mNeilTyagi Load (0.2ms)[0m  SELECT  "neil_tyagis".* FROM "neil_tyagis"  ORDER BY "neil_tyagis"."id" ASC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "rajiv_ranjans"[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "neil_tyagis"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "rajiv_ranjans"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "neil_tyagis"
+  Rendered home/result.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 26ms (Views: 22.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-03-23 01:16:40 +0530
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mRajivRanjan Load (0.2ms)[0m  SELECT  "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."voter" = ? LIMIT 1  [["voter", "1"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."voter" = ? LIMIT 1[0m  [["voter", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."voter" = ? LIMIT 1  [["voter", 1]]
+  [1m[36mNeilTyagi Load (0.1ms)[0m  [1mSELECT  "neil_tyagis".* FROM "neil_tyagis" WHERE "neil_tyagis"."voter" = ? LIMIT 1[0m  [["voter", "1"]]
+  Rendered home/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 24ms (Views: 21.0ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2017-03-23 01:16:42 +0530
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"PqVrVoqEEZ7LJ2fYGF+GotAnS8gF4Z4F6C1wVBH0r4Ak3xcHxKy1vWYYDvFTbWrztJUa/bgZ8vbkGzSxSHiJVw=="}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 7ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-03-23 01:16:42 +0530
+Processing by HomeController#index as HTML
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-03-23 01:16:42 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 15ms (Views: 14.0ms | ActiveRecord: 0.0ms)
