@@ -1268,3 +1268,216 @@ Processing by HomeController#result as HTML
   [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "neil_tyagis"[0m
   Rendered home/result.html.erb (3.3ms)
 Completed 200 OK in 6ms (Views: 4.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-03-23 00:51:07 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mRajivRanjan Load (0.2ms)[0m  [1mSELECT  "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."voter" = ? LIMIT 1[0m  [["voter", "1"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."voter" = ? LIMIT 1  [["voter", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."voter" = ? LIMIT 1[0m  [["voter", 1]]
+  [1m[35mNeilTyagi Load (0.2ms)[0m  SELECT  "neil_tyagis".* FROM "neil_tyagis" WHERE "neil_tyagis"."voter" = ? LIMIT 1  [["voter", "1"]]
+  Rendered home/index.html.erb within layouts/application (11.6ms)
+Completed 200 OK in 281ms (Views: 247.0ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/see" for 127.0.0.1 at 2017-03-23 00:51:13 +0530
+Processing by HomeController#see as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mNeilTyagi Load (0.2ms)[0m  SELECT  "neil_tyagis".* FROM "neil_tyagis" WHERE "neil_tyagis"."self" = ?  ORDER BY "neil_tyagis"."id" ASC LIMIT 1  [["self", "40816403215"]]
+  [1m[36mRajivRanjan Load (0.3ms)[0m  [1mSELECT  "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."self" = ?  ORDER BY "rajiv_ranjans"."id" ASC LIMIT 1[0m  [["self", "70116403215"]]
+  [1m[35mRajivRanjan Load (0.2ms)[0m  SELECT "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."self" = ?  [["self", "70116403215"]]
+  Rendered home/see.html.erb (11.9ms)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 1.0ms)
+
+ActionView::Template::Error (uninitialized constant ActionView::CompiledTemplates::User1):
+    15: 
+    16: <%if rajiv.first%>
+    17: <%rajiv.each do |rajiv|%>
+    18:     <li><%= User1.find_by_id(rajiv.voter).name%></li>
+    19:     <%end%>
+    20: <%end%>	
+    21: </ol>
+  app/views/home/see.html.erb:18:in `block in _app_views_home_see_html_erb___4182730546658557234_70345304335980'
+  app/views/home/see.html.erb:17:in `_app_views_home_see_html_erb___4182730546658557234_70345304335980'
+  app/controllers/concerns/home_controller.rb:28:in `see'
+
+
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.6ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (20.1ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (21.5ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (38.9ms)
+
+
+Started GET "/see" for 127.0.0.1 at 2017-03-23 00:51:45 +0530
+Processing by HomeController#see as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mNeilTyagi Load (0.2ms)[0m  SELECT  "neil_tyagis".* FROM "neil_tyagis" WHERE "neil_tyagis"."self" = ?  ORDER BY "neil_tyagis"."id" ASC LIMIT 1  [["self", "40816403215"]]
+  [1m[36mRajivRanjan Load (0.1ms)[0m  [1mSELECT  "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."self" = ?  ORDER BY "rajiv_ranjans"."id" ASC LIMIT 1[0m  [["self", "70116403215"]]
+  [1m[35mRajivRanjan Load (0.0ms)[0m  SELECT "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."self" = ?  [["self", "70116403215"]]
+  Rendered home/see.html.erb (6.2ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.4ms)
+
+ActionView::Template::Error (uninitialized constant ActionView::CompiledTemplates::User1):
+    15: 
+    16: <%if rajiv.first%>
+    17: <%rajiv.each do |rajiv|%>
+    18:     <li><%= User1.find_by_id(rajiv.voter).name%></li>
+    19:     <%end%>
+    20: <%end%>	
+    21: </ol>
+  app/views/home/see.html.erb:18:in `block in _app_views_home_see_html_erb___4182730546658557234_70345304335980'
+  app/views/home/see.html.erb:17:in `_app_views_home_see_html_erb___4182730546658557234_70345304335980'
+  app/controllers/concerns/home_controller.rb:28:in `see'
+
+
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.3ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.4ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (27.9ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (17.8ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (39.0ms)
+
+
+Started GET "/see" for 127.0.0.1 at 2017-03-23 00:52:14 +0530
+Processing by HomeController#see as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mNeilTyagi Load (0.1ms)[0m  SELECT  "neil_tyagis".* FROM "neil_tyagis" WHERE "neil_tyagis"."self" = ?  ORDER BY "neil_tyagis"."id" ASC LIMIT 1  [["self", "40816403215"]]
+  [1m[36mRajivRanjan Load (0.1ms)[0m  [1mSELECT  "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."self" = ?  ORDER BY "rajiv_ranjans"."id" ASC LIMIT 1[0m  [["self", "70116403215"]]
+  [1m[35mRajivRanjan Load (0.1ms)[0m  SELECT "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."self" = ?  [["self", "70116403215"]]
+  Rendered home/see.html.erb (7.0ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.8ms)
+
+ActionView::Template::Error (uninitialized constant ActionView::CompiledTemplates::User1):
+    15: 
+    16: <%if rajiv.first%>
+    17: <%rajiv.each do |rajiv|%>
+    18:     <li><%= User1.find_by_id(rajiv.voter).name%></li>
+    19:     <%end%>
+    20: <%end%>	
+    21: </ol>
+  app/views/home/see.html.erb:18:in `block in _app_views_home_see_html_erb___4182730546658557234_70345304335980'
+  app/views/home/see.html.erb:17:in `_app_views_home_see_html_erb___4182730546658557234_70345304335980'
+  app/controllers/concerns/home_controller.rb:28:in `see'
+
+
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.7ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.8ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (26.2ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.1ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (18.3ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (38.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-03-23 00:52:46 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mRajivRanjan Load (0.1ms)[0m  [1mSELECT  "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."voter" = ? LIMIT 1[0m  [["voter", "1"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."voter" = ? LIMIT 1  [["voter", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."voter" = ? LIMIT 1[0m  [["voter", 1]]
+  [1m[35mNeilTyagi Load (0.1ms)[0m  SELECT  "neil_tyagis".* FROM "neil_tyagis" WHERE "neil_tyagis"."voter" = ? LIMIT 1  [["voter", "1"]]
+  Rendered home/index.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 278ms (Views: 247.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/see" for 127.0.0.1 at 2017-03-23 00:52:48 +0530
+Processing by HomeController#see as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mNeilTyagi Load (0.2ms)[0m  SELECT  "neil_tyagis".* FROM "neil_tyagis" WHERE "neil_tyagis"."self" = ?  ORDER BY "neil_tyagis"."id" ASC LIMIT 1  [["self", "40816403215"]]
+  [1m[36mRajivRanjan Load (0.2ms)[0m  [1mSELECT  "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."self" = ?  ORDER BY "rajiv_ranjans"."id" ASC LIMIT 1[0m  [["self", "70116403215"]]
+  [1m[35mRajivRanjan Load (0.2ms)[0m  SELECT "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."self" = ?  [["self", "70116403215"]]
+  Rendered home/see.html.erb (11.6ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.8ms)
+
+ActionView::Template::Error (uninitialized constant ActionView::CompiledTemplates::User1):
+    15: 
+    16: <%if rajiv.first%>
+    17: <%rajiv.each do |rajiv|%>
+    18:     <li><%= User1.find_by_id(rajiv.voter).name%></li>
+    19:     <%end%>
+    20: <%end%>	
+    21: </ol>
+  app/views/home/see.html.erb:18:in `block in _app_views_home_see_html_erb__885058194212811547_69902889110360'
+  app/views/home/see.html.erb:17:in `_app_views_home_see_html_erb__885058194212811547_69902889110360'
+  app/controllers/concerns/home_controller.rb:28:in `see'
+
+
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.6ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.3ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (23.1ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (19.9ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/naveen/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (38.4ms)
+
+
+Started GET "/see" for 127.0.0.1 at 2017-03-23 00:56:19 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#see as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mNeilTyagi Load (0.2ms)[0m  [1mSELECT  "neil_tyagis".* FROM "neil_tyagis" WHERE "neil_tyagis"."self" = ?  ORDER BY "neil_tyagis"."id" ASC LIMIT 1[0m  [["self", "40816403215"]]
+  [1m[35mRajivRanjan Load (0.2ms)[0m  SELECT  "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."self" = ?  ORDER BY "rajiv_ranjans"."id" ASC LIMIT 1  [["self", "70116403215"]]
+  [1m[36mRajivRanjan Load (0.2ms)[0m  [1mSELECT "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."self" = ?[0m  [["self", "70116403215"]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered home/see.html.erb (15.0ms)
+Completed 200 OK in 57ms (Views: 20.5ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-03-23 00:56:23 +0530
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mRajivRanjan Load (0.2ms)[0m  SELECT  "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."voter" = ? LIMIT 1  [["voter", "1"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."voter" = ? LIMIT 1[0m  [["voter", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."voter" = ? LIMIT 1  [["voter", 1]]
+  [1m[36mNeilTyagi Load (0.1ms)[0m  [1mSELECT  "neil_tyagis".* FROM "neil_tyagis" WHERE "neil_tyagis"."voter" = ? LIMIT 1[0m  [["voter", "1"]]
+  Rendered home/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 246ms (Views: 241.1ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2017-03-23 00:56:25 +0530
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ouHS6ovXZACVKmWeQbU9TfzJfSbeqF2cw1TIm6syaySmnoxxALvyWae1TkC+dcu9wMl9rZ0fD4fub/9oQGk5DA=="}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 67ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-03-23 00:56:25 +0530
+Processing by HomeController#index as HTML
+Completed 401 Unauthorized in 5ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-03-23 00:56:25 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (3.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (18.3ms)
+Completed 200 OK in 53ms (Views: 52.0ms | ActiveRecord: 0.0ms)
