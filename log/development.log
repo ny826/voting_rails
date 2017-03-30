@@ -3381,3 +3381,253 @@ Processing by HomeController#index as HTML
   [1m[35mNeilTyagi Load (0.1ms)[0m  SELECT  "neil_tyagis".* FROM "neil_tyagis" WHERE "neil_tyagis"."voter" = ? LIMIT 1  [["voter", "2"]]
   Rendered home/index.html.erb within layouts/application (2.4ms)
 Completed 200 OK in 29ms (Views: 26.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-03-30 09:00:36 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mRajivRanjan Load (0.1ms)[0m  [1mSELECT  "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."voter" = ? LIMIT 1[0m  [["voter", "2"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."voter" = ? LIMIT 1  [["voter", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."voter" = ? LIMIT 1[0m  [["voter", 2]]
+  [1m[35mNeilTyagi Load (0.1ms)[0m  SELECT  "neil_tyagis".* FROM "neil_tyagis" WHERE "neil_tyagis"."voter" = ? LIMIT 1  [["voter", "2"]]
+  Rendered home/index.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 215ms (Views: 189.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/homecontroller.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-03-30 09:00:36 +0530
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2017-03-30 09:00:36 +0530
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2017-03-30 09:00:36 +0530
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for 127.0.0.1 at 2017-03-30 09:00:36 +0530
+
+
+Started GET "/assets/homecontroller.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-03-30 09:00:36 +0530
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2017-03-30 09:00:36 +0530
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2017-03-30 09:00:36 +0530
+
+
+Started GET "/it" for 127.0.0.1 at 2017-03-30 09:00:40 +0530
+
+ActionController::RoutingError (No route matches [GET] "/it"):
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.5) lib/rack/handler/webrick.rb:88:in `service'
+  /home/manish/.rbenv/versions/2.3.3/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /home/manish/.rbenv/versions/2.3.3/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /home/manish/.rbenv/versions/2.3.3/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /home/manish/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /home/manish/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.2ms)
+  Rendered /home/manish/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (4.6ms)
+  Rendered /home/manish/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/manish/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (28.1ms)
+  Rendered /home/manish/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/manish/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/manish/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/manish/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/manish/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (19.1ms)
+  Rendered /home/manish/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /home/manish/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/manish/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (34.1ms)
+
+
+Started GET "/result" for 127.0.0.1 at 2017-03-30 09:00:59 +0530
+Processing by HomeController#result as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mRajivRanjan Load (0.1ms)[0m  SELECT  "rajiv_ranjans".* FROM "rajiv_ranjans"  ORDER BY "rajiv_ranjans"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "rajiv_ranjans"[0m
+  [1m[35mNeilTyagi Load (0.1ms)[0m  SELECT  "neil_tyagis".* FROM "neil_tyagis"  ORDER BY "neil_tyagis"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "neil_tyagis"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "rajiv_ranjans"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "neil_tyagis"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "neil_tyagis"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "rajiv_ranjans"[0m
+  Rendered home/result.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 19ms (Views: 16.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-03-30 09:01:00 +0530
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mRajivRanjan Load (0.1ms)[0m  [1mSELECT  "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."voter" = ? LIMIT 1[0m  [["voter", "2"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."voter" = ? LIMIT 1  [["voter", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."voter" = ? LIMIT 1[0m  [["voter", 2]]
+  [1m[35mNeilTyagi Load (0.1ms)[0m  SELECT  "neil_tyagis".* FROM "neil_tyagis" WHERE "neil_tyagis"."voter" = ? LIMIT 1  [["voter", "2"]]
+  Rendered home/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 16ms (Views: 13.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/see" for 127.0.0.1 at 2017-03-30 09:01:02 +0530
+Processing by HomeController#see as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mNeilTyagi Load (0.2ms)[0m  SELECT  "neil_tyagis".* FROM "neil_tyagis" WHERE "neil_tyagis"."self" = ?  ORDER BY "neil_tyagis"."id" ASC LIMIT 1  [["self", "40816403215"]]
+  [1m[36mNeilTyagi Load (0.2ms)[0m  [1mSELECT "neil_tyagis".* FROM "neil_tyagis" WHERE "neil_tyagis"."self" = ?[0m  [["self", "40816403215"]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mRajivRanjan Load (0.1ms)[0m  [1mSELECT  "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."self" = ?  ORDER BY "rajiv_ranjans"."id" ASC LIMIT 1[0m  [["self", "70116403215"]]
+  [1m[35mRajivRanjan Load (0.1ms)[0m  SELECT "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."self" = ?  [["self", "70116403215"]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered home/see.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 18ms (Views: 14.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-03-30 09:01:03 +0530
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mRajivRanjan Load (0.1ms)[0m  [1mSELECT  "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."voter" = ? LIMIT 1[0m  [["voter", "2"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."voter" = ? LIMIT 1  [["voter", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."voter" = ? LIMIT 1[0m  [["voter", 2]]
+  [1m[35mNeilTyagi Load (0.1ms)[0m  SELECT  "neil_tyagis".* FROM "neil_tyagis" WHERE "neil_tyagis"."voter" = ? LIMIT 1  [["voter", "2"]]
+  Rendered home/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 15ms (Views: 13.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-03-30 09:12:13 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mRajivRanjan Load (0.1ms)[0m  [1mSELECT  "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."voter" = ? LIMIT 1[0m  [["voter", "2"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."voter" = ? LIMIT 1  [["voter", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."voter" = ? LIMIT 1[0m  [["voter", 2]]
+  [1m[35mNeilTyagi Load (0.1ms)[0m  SELECT  "neil_tyagis".* FROM "neil_tyagis" WHERE "neil_tyagis"."voter" = ? LIMIT 1  [["voter", "2"]]
+  Rendered home/index.html.erb within layouts/application (12.6ms)
+Completed 200 OK in 454ms (Views: 426.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.self-f9e876fe598cdcb72d4480a0166e4305376c8f3c85279edbbdb930d00f17301b.css?body=1" for 127.0.0.1 at 2017-03-30 09:12:14 +0530
+
+
+Started GET "/assets/material_icons.self-6ff4c6d850b4a02d15b3050e191fec9df7b7e12e0d1496a7c63d7306c56b5b6d.css?body=1" for 127.0.0.1 at 2017-03-30 09:12:14 +0530
+
+
+Started GET "/assets/homecontroller.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-03-30 09:12:14 +0530
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2017-03-30 09:12:14 +0530
+
+
+Started GET "/assets/homecontroller.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-03-30 09:12:14 +0530
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2017-03-30 09:12:14 +0530
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for 127.0.0.1 at 2017-03-30 09:12:14 +0530
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2017-03-30 09:12:14 +0530
+
+
+Started GET "/assets/materialize" for 127.0.0.1 at 2017-03-30 09:12:14 +0530
+
+
+Started GET "/see" for 127.0.0.1 at 2017-03-30 09:12:24 +0530
+Processing by HomeController#see as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mNeilTyagi Load (0.2ms)[0m  SELECT  "neil_tyagis".* FROM "neil_tyagis" WHERE "neil_tyagis"."self" = ?  ORDER BY "neil_tyagis"."id" ASC LIMIT 1  [["self", "40816403215"]]
+  [1m[36mNeilTyagi Load (0.1ms)[0m  [1mSELECT "neil_tyagis".* FROM "neil_tyagis" WHERE "neil_tyagis"."self" = ?[0m  [["self", "40816403215"]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mRajivRanjan Load (0.1ms)[0m  [1mSELECT  "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."self" = ?  ORDER BY "rajiv_ranjans"."id" ASC LIMIT 1[0m  [["self", "70116403215"]]
+  [1m[35mRajivRanjan Load (0.1ms)[0m  SELECT "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."self" = ?  [["self", "70116403215"]]
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered home/see.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 36ms (Views: 33.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-03-30 09:12:26 +0530
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mRajivRanjan Load (0.1ms)[0m  [1mSELECT  "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."voter" = ? LIMIT 1[0m  [["voter", "2"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."voter" = ? LIMIT 1  [["voter", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."voter" = ? LIMIT 1[0m  [["voter", 2]]
+  [1m[35mNeilTyagi Load (0.1ms)[0m  SELECT  "neil_tyagis".* FROM "neil_tyagis" WHERE "neil_tyagis"."voter" = ? LIMIT 1  [["voter", "2"]]
+  Rendered home/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 23ms (Views: 21.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/result" for 127.0.0.1 at 2017-03-30 09:12:31 +0530
+Processing by HomeController#result as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mRajivRanjan Load (0.1ms)[0m  SELECT  "rajiv_ranjans".* FROM "rajiv_ranjans"  ORDER BY "rajiv_ranjans"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "rajiv_ranjans"[0m
+  [1m[35mNeilTyagi Load (0.1ms)[0m  SELECT  "neil_tyagis".* FROM "neil_tyagis"  ORDER BY "neil_tyagis"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "neil_tyagis"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "rajiv_ranjans"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "neil_tyagis"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "neil_tyagis"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "rajiv_ranjans"[0m
+  Rendered home/result.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 23ms (Views: 21.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-03-30 09:12:32 +0530
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mRajivRanjan Load (0.2ms)[0m  [1mSELECT  "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."voter" = ? LIMIT 1[0m  [["voter", "2"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."voter" = ? LIMIT 1  [["voter", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "rajiv_ranjans".* FROM "rajiv_ranjans" WHERE "rajiv_ranjans"."voter" = ? LIMIT 1[0m  [["voter", 2]]
+  [1m[35mNeilTyagi Load (0.1ms)[0m  SELECT  "neil_tyagis".* FROM "neil_tyagis" WHERE "neil_tyagis"."voter" = ? LIMIT 1  [["voter", "2"]]
+  Rendered home/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 36ms (Views: 32.6ms | ActiveRecord: 0.8ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2017-03-30 09:12:36 +0530
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"SGBwjR/mmhep3YkCSKpfr7YncGEsQbDeeZ7hWNpEn6LFnYo0tme5PAN9aamwPh81K9irUFau9d3+LeLq2ZjxHQ=="}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 12ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-03-30 09:12:36 +0530
+Processing by HomeController#index as HTML
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-03-30 09:12:36 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (13.4ms)
+Completed 200 OK in 31ms (Views: 29.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/materialize" for 127.0.0.1 at 2017-03-30 09:12:36 +0530
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-03-30 09:12:47 +0530
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.4ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 22ms (Views: 20.8ms | ActiveRecord: 0.0ms)

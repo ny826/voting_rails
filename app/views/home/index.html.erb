@@ -8,8 +8,9 @@
 	<li><a href="/neil">Neil Tyagi</a></li><br>
 
 </ol>
+
 <%else%>
-<h3>You Have Already Voted See <a href="/result">Results</a></h3>
+<h3 class="red lighten-5">You Have Already Voted See <a href="/result">Results</a></h3>
 <%end%>
 
 <%if (RajivRanjan.find_by_voter(current_user.id) ==nil && NeilTyagi.find_by_voter(current_user.id))||(RajivRanjan.find_by_voter(current_user.id) && NeilTyagi.find_by_voter(current_user.id)==nil)%>
